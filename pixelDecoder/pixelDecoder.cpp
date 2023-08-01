@@ -1,16 +1,18 @@
 #include<SFML/Graphics.hpp>
 #include<cstring>
 #pragma warning(disable: 4996);
+using namespace sf;
 char map[101][101];
 char nwMap[101][101];
 int x, y;
 bool st = false;
 void drawMap(RenderWindow& window, int n, int m, int len) {	
 	for (int i = 0; i < n; ++i) {		
-		for (int j = 0; j < m; ++j) {	
-			setFillColor(250, 250, 250);		
-			setLineColor(0, 0, 0);			
-			rectangle(window, len, len, j * len, i * len, 1);		
+		for (int j = 0; j < m; ++j) {
+			RectangleShape square(sf::Vector2f(len, len));
+			square.setFillColor(sf::Color(250, 250, 250));		
+			square.setOutlineColor(Color(0, 0, 0));			
+			window.draw(square);
 		}	
 	}
 }
